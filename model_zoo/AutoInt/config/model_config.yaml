@@ -1,0 +1,405 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+AutoInt_test:
+    model: AutoInt
+    dataset_id: tiny_npz
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 1.e-8
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    dnn_hidden_units: [64, 32]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 8
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+AutoInt_default:
+    model: AutoInt
+    dataset_id: TBD
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [400, 400]
+    dnn_activations: relu
+    net_dropout: 0
+    num_heads: 2
+    attention_layers: 3
+    attention_dim: 40
+    use_residual: True
+    batch_norm: False
+    layer_norm: False
+    use_scale: False
+    use_wide: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+AutoInt_movielenslatest_x1_004_4795ccb3:
+    attention_dim: 128
+    attention_layers: 2
+    batch_norm: false
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [] 
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Movielens/AutoInt_movielenslatest_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0
+    net_regularizer: 0
+    num_heads: 4
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: true
+    verbose: 0
+
+AutoInt_movielenslatest_x1_006_a5e56596:
+    attention_dim: 128
+    attention_layers: 2
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Movielens/AutoInt_movielenslatest_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 4
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: true
+    verbose: 0
+
+
+AutoInt_avazu_x1_005_73d0b026:
+    attention_dim: 256
+    attention_layers: 5
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: avazu_x1_3fb65689
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Avazu/AutoInt_avazu_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 2
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: false
+    verbose: 0
+
+
+AutoInt_criteo_x1_012_e71394ec:
+    attention_dim: 256
+    attention_layers: 3
+    batch_norm: false
+    batch_size: 4096
+    dataset_id: criteo_x1_7b681156
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: []
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Criteo/AutoInt_criteo_x1
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0
+    net_regularizer: 0
+    num_heads: 4
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: true
+    verbose: 0
+
+AutoInt_criteo_x1_005_a4b5787e:
+    attention_dim: 256
+    attention_layers: 3
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: criteo_x1_7b681156
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AutoInt
+    model_id: AutoInt_base
+    model_root: ./Criteo/AutoInt_criteo_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 2
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: false
+    use_wide: true
+    verbose: 0
+
+
+KDAutoInt_movielenslatest:
+    attention_dim: 128
+    attention_layers: 2
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    student_hidden_units: [1024, 1024, 1024]
+    parallel_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: KDAutoInt
+    model_id: KDAutoInt
+    model_root: ./Movielens/KDAutoInt/student
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 4
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: trueg
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: true
+    verbose: 0
+    alpha_e : 1
+    alpha_i : 1
+    phase : distillation
+
+KDAutoInt_avazu:
+    attention_dim: 256
+    attention_layers: 5
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: avazu_x1_3fb65689
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    student_hidden_units: [1024, 1024, 1024]
+    parallel_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: KDAutoInt
+    model_id: KDAutoInt
+    model_root: ./Avazu/KDAutoInt/teacher
+    monitor: AUC
+    monitor_mode: max
+    dropout_stu: 0.1
+    net_dropout: 0.1
+    net_regularizer: 0
+    num_heads: 2
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: true
+    use_wide: false
+    verbose: 0
+    alpha_e : 1
+    alpha_i : 1
+    phase : teacher_training
+
+
+KDAutoInt_criteo:
+    attention_dim: 256
+    attention_layers: 3
+    batch_norm: true
+    batch_size: 4096
+    dataset_id: criteo_x1_7b681156
+    debug: false
+    dnn_activations: relu
+    dnn_hidden_units: [400, 400, 400]
+    student_hidden_units: [1024, 1024, 1024]
+    parallel_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    layer_norm: true
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: KDAutoInt
+    model_id: KDAutoInt
+    model_root: ./Criteo/KDAutoInt/student
+    monitor: AUC
+    monitor_mode: max
+    net_dropout: 0.1
+    dropout_stu : 0.1
+    net_regularizer: 0
+    num_heads: 2
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    use_residual: true
+    use_scale: false
+    use_wide: true
+    verbose: 0
+    alpha_e : 1
+    alpha_i : 1
+    phase : distillation
+

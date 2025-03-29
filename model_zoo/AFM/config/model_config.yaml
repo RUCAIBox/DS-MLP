@@ -1,0 +1,152 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+AFM_test:
+    model: AFM
+    dataset_id: tiny_npz
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 1.e-8
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    attention_dim: 8
+    attention_dropout: [0, 0]
+    use_attention: True
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+AFM_default: # This is a config template
+    model: AFM
+    dataset_id: TBD
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    attention_dim: 40
+    attention_dropout: [0, 0]
+    embedding_dropout: 0
+    use_attention: True
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+AFM_movielenslatest:
+    attention_dim: 16
+    attention_dropout: [0.4, 0.4]
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug: false
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFM
+    model_id: AFM_base
+    model_root: ./Movielens/AFM_movielenslatest_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    partition_block_size: -1
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_attention: true
+    use_hdf5: true
+    verbose: 0
+
+AFM_avazu_x1:
+    attention_dim: 16
+    attention_dropout: [0.2, 0.2]
+    batch_size: 4096
+    data_block_size: -1
+    dataset_id: avazu_x1_3fb65689
+    debug: false
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFM
+    model_id: AFM_base
+    model_root: ./Avazu/AFM_avazu_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_attention: true
+    use_hdf5: true
+    verbose: 0
+
+AFM_criteo_x1:
+    attention_dim: 32
+    attention_dropout: [0, 0]
+    batch_size: 4096
+    data_block_size: -1
+    dataset_id: criteo_x1_7b681156
+    debug: false
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-06
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFM
+    model_id: AFM_base
+    model_root: ./Criteo/AFM_criteo_x1/testpara
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_attention: true
+    use_hdf5: true
+    verbose: 0

@@ -1,0 +1,362 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+
+FinalMLP_test:
+    model: FinalMLP
+    dataset_id: tiny_npz
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    mlp1_hidden_units: [64, 32]
+    mlp1_hidden_activations: relu
+    mlp1_dropout: 0
+    mlp1_batch_norm: False
+    mlp2_hidden_units: [64, 64, 64]
+    mlp2_hidden_activations: relu
+    mlp2_dropout: 0
+    mlp2_batch_norm: False
+    use_fs: True
+    fs_hidden_units: [64, 64]
+    fs1_context: ["userid"]
+    fs2_context: ["adgroup_id", "cate_id"]
+    num_heads: 2
+    batch_size: 128
+    embedding_dim: 4
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+FinalMLP_default: # This is a config template
+    model: FinalMLP
+    dataset_id: TBD
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    mlp1_hidden_units: [1024, 512]
+    mlp1_hidden_activations: relu
+    mlp1_dropout: 0
+    mlp1_batch_norm: False
+    mlp2_hidden_units: [1024, 512, 256]
+    mlp2_hidden_activations: relu
+    mlp2_dropout: 0
+    mlp2_batch_norm: False
+    use_fs: True
+    fs_hidden_units: [1024, 512]
+    fs1_context: []
+    fs2_context: []
+    num_heads: 2
+    batch_size: 10000
+    embedding_dim: 16
+    epochs: 100
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FinalMLP_movielenslatest_x1_004_498f3e4f:
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: []
+    fs2_context: []
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp1_batch_norm: true
+    mlp1_dropout: 0.4
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0.2
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [800]
+    student_hidden_units : [800,800,800]
+    mlp_hidden_units: [400,400,400]
+    model: FinalMLP
+    model_id: FinalMLP_default
+    model_root: ./checkpoints/FinalMLP_movielenslatest_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 10
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+
+FinalMLP_avazu_x1_018_488deefd:
+    batch_size: 4096
+    dataset_id: avazu_x1_3fb65689
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: []
+    fs2_context: []
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp1_batch_norm: true
+    mlp1_dropout: 0.3
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400, 400, 400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0.3
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [800]
+    model: FinalMLP
+    model_id: FinalMLP_default
+    model_root: ./checkpoints/FinalMLP_avazu_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 10
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+
+FinalMLP_criteo_x1_004_d5d36917:
+    batch_size: 4096
+    dataset_id: criteo_x1_7b681156
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13]
+    fs2_context: [C6]
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp1_batch_norm: true
+    mlp1_dropout: 0.2
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400, 400, 400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0.3
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [1000]
+    model: FinalMLP
+    model_id: FinalMLP_default
+    model_root: ./checkpoints/FinalMLP_criteo_x1/testP
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 200
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+
+
+
+KDFinalMLP_movielenslatest:
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: []
+    fs2_context: []
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp_dropout: 0.1
+    mlp1_batch_norm: true
+    mlp1_dropout: 0
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [800]
+    student_hidden_units : [1024,1024,1024]
+    parallel_hidden_units: [800]
+    model: KDFinalMLP
+    model_id: KDFinalMLP
+    model_root: ./Movielens/KDFinalMLP/teacher_training/0
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 10
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+    phase : teacher_training
+    alpha_e : 1
+    alpha_i : 1
+
+
+
+KDFinalMLP_avazu:
+    batch_size: 4096
+    dataset_id: avazu_x1_3fb65689
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: []
+    fs2_context: []
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp_dropout: 0.2
+    mlp1_batch_norm: true
+    mlp1_dropout: 0
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400, 400, 400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [800]
+    student_hidden_units : [1024,1024,1024]
+    parallel_hidden_units: [800]
+    model: KDFinalMLP
+    model_id: KDFinalMLP
+    model_root: ./Avazu/KDFinalMLP/testT
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 10
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+    phase : teacher_training
+    alpha_e : 1.0
+    alpha_i : 1.0
+
+
+
+
+KDFinalMLP_criteo:
+    batch_size: 4096
+    dataset_id: criteo_x1_7b681156
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    fs1_context: [I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13]
+    fs2_context: [C6]
+    fs_hidden_units: [800]
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    mlp_dropout: 0.2
+    mlp1_batch_norm: true
+    mlp1_dropout: 0
+    mlp1_hidden_activations: relu
+    mlp1_hidden_units: [400, 400, 400]
+    mlp2_batch_norm: true
+    mlp2_dropout: 0
+    mlp2_hidden_activations: relu
+    mlp2_hidden_units: [1000]
+    student_hidden_units : [1024,1024,1024]
+    parallel_hidden_units: [1000]
+    model: KDFinalMLP
+    model_id: KDFinalMLP
+    model_root: ./Criteo/KDFinalMLP/testparm
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_heads: 200
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_fs: true
+    verbose: 0
+    phase : teacher_training
+    alpha_e : 0.5
+    alpha_i : 0.5
+

@@ -1,0 +1,187 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    ordered_features: null
+    feature_specs: null
+
+FinalNet_test:
+    model: FinalNet
+    dataset_id: tiny_npz
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    block_type: "2B"
+    batch_norm: True
+    use_feature_gating: True
+    block1_hidden_units: [64, 64, 64]
+    block1_hidden_activations: null
+    block1_dropout: 0
+    block2_hidden_units: [64, 64, 64]
+    block2_hidden_activations: null
+    block2_dropout: 0
+    residual_type: concat
+    epochs: 1
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+FinalNet_default: # This is a config template
+    model: FinalNet
+    dataset_id: TBD
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    block_type: "2B"
+    batch_norm: True
+    use_feature_gating: True
+    block1_hidden_units: [64, 64, 64]
+    block1_hidden_activations: null
+    block1_dropout: 0
+    block2_hidden_units: [64, 64, 64]
+    block2_hidden_activations: null
+    block2_dropout: 0
+    residual_type: concat
+    epochs: 100
+    shuffle: True
+    seed: 20222023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+
+FINAL_movielenslatest_x1_014_50fc5f7f:
+    batch_size: 4096
+    block1_dropout: 0
+    block1_hidden_activations: ReLU
+    block1_hidden_units: [400, 400]
+    block2_dropout: 0
+    block2_hidden_activations: ReLU
+    block2_hidden_units: [500]
+    block_type: 2B
+    dataset_id: movielenslatest_x1_233328b6
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: FinalNet
+    model_id: FINAL_default
+    model_root: ./checkpoints/FINAL_movielenslatest_x1/4
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    batch_norm: True
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_field_gate: true
+    verbose: 0
+
+FINAL_avazu:
+    batch_size: 4096
+    block1_dropout: 0.3
+    block1_hidden_activations: ReLU
+    block1_hidden_units: [800]
+    block2_dropout: 0.2
+    block2_hidden_activations: ReLU
+    block2_hidden_units: [800, 800]
+    block_type: 2B
+    dataset_id: avazu_x1_3fb65689
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 0.05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: FinalNet
+    model_id: FinalNet_default
+    model_root: ./checkpoints/FINAL_avazu_x1/2
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    batch_norm: True
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 1024
+    shuffle: true
+    task: binary_classification
+    use_field_gate: true
+    verbose: 0
+
+FINAL_criteo_x1:
+    batch_size: 4096
+    block1_dropout: 0.1
+    block1_hidden_activations: ReLU
+    block1_hidden_units: [400, 400]
+    block2_dropout: 0
+    block2_hidden_activations: ReLU
+    block2_hidden_units: [400, 400]
+    block_type: 2B
+    dataset_id: criteo_x1_7b681156
+    debug_mode: false
+    early_stop_patience: 2
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    epochs: 100
+    eval_interval: 1
+    feature_specs: null
+    group_id: null
+    learning_rate: 0.001
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: FinalNet
+    model_id: FinalNet_default
+    model_root: ./checkpoints/FINAL_criteo_x1/testP
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    batch_norm: True
+    num_workers: 3
+    optimizer: adam
+    ordered_features: null
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_field_gate: true
+    verbose: 0
+

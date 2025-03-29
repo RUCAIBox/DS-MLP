@@ -1,0 +1,181 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+AFN_test:
+    model: AFN
+    dataset_id: tiny_npz
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 1.e-8
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    logarithmic_neurons: 8
+    afn_hidden_units: [32, 16]
+    afn_activations: relu
+    afn_dropout: 0
+    ensemble_dnn: True
+    dnn_hidden_units: [32, 16]
+    dnn_activations: relu
+    dnn_dropout: 0
+    batch_norm: False
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+AFN_default: # This is a config template
+    model: AFN
+    dataset_id: TBD
+    loss: binary_crossentropy
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    logarithmic_neurons: 1200
+    afn_hidden_units: [400, 400, 400]
+    afn_activations: relu
+    afn_dropout: 0
+    ensemble_dnn: False
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: relu
+    dnn_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+AFN_avazu_x1:
+    afn_activations: relu
+    afn_dropout: 0.2
+    afn_hidden_units: [1200]
+    batch_norm: true
+    batch_size: 4096
+    data_block_size: -1
+    dataset_id: avazu_x1_3fb65689
+    debug: false
+    dnn_activations: relu
+    dnn_dropout: 0
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.01
+    ensemble_dnn: true
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    logarithmic_neurons: 1500
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFN
+    model_id: AFN_base
+    model_root: ./Avazu/AFN_avazu_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    verbose: 0
+
+AFN_criteo_x1:
+    afn_activations: relu
+    afn_dropout: 0.4
+    afn_hidden_units: [200]
+    batch_norm: true
+    batch_size: 4096
+    data_block_size: -1
+    dataset_id: criteo_x1_7b681156
+    debug: false
+    dnn_activations: relu
+    dnn_dropout: 0.1
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 1.0e-05
+    ensemble_dnn: true
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    logarithmic_neurons: 100
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFN
+    model_id: AFN_base
+    model_root: ./Criteo/AFN_criteo_x1/testparm
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    verbose: 0
+
+AFN_movielenslatest_x1:
+    afn_activations: relu
+    afn_dropout: 0.4
+    afn_hidden_units: [200]
+    batch_norm: false
+    batch_size: 4096
+    dataset_id: movielenslatest_x1_cd32d937
+    debug: false
+    dnn_activations: relu
+    dnn_dropout: 0.5
+    dnn_hidden_units: [400, 400, 400]
+    embedding_dim: 10
+    embedding_regularizer: 0.001
+    ensemble_dnn: true
+    epochs: 100
+    every_x_epochs: 1
+    learning_rate: 0.001
+    logarithmic_neurons: 800
+    loss: binary_crossentropy
+    metrics: [AUC, logloss]
+    model: AFN
+    model_id: AFN_base
+    model_root: ./Movielens/AFN_movielenslatest_x1/
+    monitor: AUC
+    monitor_mode: max
+    net_regularizer: 0
+    num_workers: 3
+    optimizer: adam
+    patience: 2
+    pickle_feature_encoder: true
+    save_best_only: true
+    seed: 2021
+    shuffle: true
+    task: binary_classification
+    use_hdf5: true
+    verbose: 0
+
