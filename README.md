@@ -16,6 +16,11 @@ Please install other required packages via `pip install -r requirements.txt`.
 
 please download the dataset from [Criteo]([reczoo/Criteo_x1 at main](https://huggingface.co/datasets/reczoo/Criteo_x1/tree/main)), [Avazu]([reczoo/Avazu_x1 at main](https://huggingface.co/datasets/reczoo/Avazu_x1/tree/main)) and [MovieLens]([reczoo/MovielensLatest_x1 at main](https://huggingface.co/datasets/reczoo/MovielensLatest_x1/tree/main)), put them in the /data folder.
 
+### Model Checkpoints
+We provide pretrained checkpoints for both baseline reproduction models and our proposed method to facilitate reproducibility.
+The checkpoints can be downloaded from:
+https://drive.google.com/file/d/1mHlKqoEs8FQjLTlzIbQi3P1fOMXkszsw/view?usp=drive_link
+
 ### Quick Start
 
 1. cd model_zoo/DS-MLP
@@ -50,3 +55,4 @@ please download the dataset from [Criteo]([reczoo/Criteo_x1 at main](https://hug
 # add the student model path in DSMLP
 python run_expid.py --expid=DSMLP_[dataset] --gpu=0
 ```
+
