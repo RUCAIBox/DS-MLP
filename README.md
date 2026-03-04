@@ -19,7 +19,8 @@ please download the dataset from [Criteo]([reczoo/Criteo_x1 at main](https://hug
 ### Model Checkpoints
 We provide pretrained checkpoints for both baseline reproduction models and our proposed method to facilitate reproducibility.
 The checkpoints can be downloaded from:
-https://drive.google.com/file/d/1mHlKqoEs8FQjLTlzIbQi3P1fOMXkszsw/view?usp=drive_link
+[https://drive.google.com/file/d/1mHlKqoEs8FQjLTlzIbQi3P1fOMXkszsw/view?usp=drive_link](https://drive.google.com/file/d/1mHlKqoEs8FQjLTlzIbQi3P1fOMXkszsw/view?usp=sharing)
+
 
 ### Quick Start
 
